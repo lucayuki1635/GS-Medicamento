@@ -28,6 +28,16 @@ export default function Cadastro({navigation}){
 		navigation.navigate('Login');
 	};
 
+	function getWeekNumber() {
+		var currentDate = new Date();
+		var startDate = new Date(currentDate.getFullYear(), 0, 1);
+		var days = Math.floor((currentDate - startDate) /
+			(24 * 60 * 60 * 1000));
+		
+		var weekNumber = Math.ceil(days / 7);  
+		return weekNumber
+	}
+	
 
 	async function handleRegister(){
 		const tipo = selectedOption
@@ -56,7 +66,18 @@ export default function Cadastro({navigation}){
 				}
 
 			}else if (selectedOption=='paciente'){
-				const data = {nome,idade,plano,telefone,email,senha,tipo}
+				const medicamentos = {
+					"segunda": {},
+					"terca": {},
+					"quarta": {},
+					"quinta": {},
+					"sexta": {},
+					"sabado": {},
+					"domingo": {},
+					"week": getWeekNumber()
+				}
+				const notificacoes = []
+				const data = {nome,idade,plano,telefone,email,senha,notificacoes,medicamentos,tipo}
 				const verificarVazio =  Object.values(data).every(valor => valor !== '')
 
 				if (!verificarVazio){
