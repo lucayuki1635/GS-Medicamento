@@ -1,0 +1,46 @@
+{
+  "usuarios": [
+    {
+      "nome": "a",
+      "crm": "a",
+      "especialidade": "a",
+      "telefone": "a",
+      "email": "123",
+      "senha": "123",
+      "tipo": "medico",
+      "id": 1
+    },
+    {
+      "nome": "aa",
+      "idade": "aa",
+      "plano": "aa",
+      "telefone": "aa",
+      "email": "1234",
+      "senha": "123",
+      "tipo": "paciente",
+      "id": 2
+    },
+    {
+      "nome": "1234",
+      "idade": "111",
+      "plano": "111",
+      "telefone": "111",
+      "email": "111",
+      "senha": "111",
+      "tipo": "paciente",
+      "id": 3
+    },
+    {
+      "nome": "12234",
+      "idade": "2142",
+      "plano": "42",
+      "telefone": "42",
+      "email": "222",
+      "senha": "222",
+      "tipo": "paciente",
+      "id": 4
+    }
+  ],
+  "medicamento": [],
+  "notificacao": []
+}

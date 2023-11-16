@@ -1,0 +1,7 @@
+npm install expo
+npm install axios
+npm install -g json-server
+npx expo install react-dom react-native-web @expo/webpack-config
+npx expo install expo-checkbox
+npx expo start
+json-server --watch api.json
