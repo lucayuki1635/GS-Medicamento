@@ -11,10 +11,15 @@ export default function Login({navigation}) {
   const [senha, setSenha] = useState('')
   const [erro, setErro] = useState('')
   const {login} = useContext(AuthContext)
+  
+  
+  function teste(){
+    console.log("Tipo de usuário:", usertype);
+  }
 
   async function handleLogin(){
     if (await login({email, senha})){
-      navigation.navigate('Painel')
+      navigation.navigate('Carregamento')
     }else{
       setErro("Usuário ou senha inválidos")
     }

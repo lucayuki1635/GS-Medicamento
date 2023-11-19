@@ -20,7 +20,7 @@
       "notificacoes": [],
       "medicamentos": {
         "segunda": {},
-        "terca": {},
+        "terca": {"medicamento": [false, 0, 0], "medicamento 2": [true, 0, 0]},
         "quarta": {},
         "quinta": {},
         "sexta": {},
@@ -30,6 +30,68 @@
       },
       "tipo": "paciente",
       "id": 2
+    },
+    {
+      "nome": "2",
+      "idade": "2",
+      "plano": "2",
+      "telefone": "2",
+      "email": "2",
+      "senha": "2",
+      "notificacoes": [],
+      "medicamentos": {
+        "segunda": {},
+        "terca": {},
+        "quarta": {},
+        "quinta": {},
+        "sexta": {},
+        "sabado": {},
+        "domingo": {},
+        "week": 46
+      },
+      "tipo": "paciente",
+      "id": 3
+    },
+    {
+      "nome": "a",
+      "crm": "a",
+      "especialidade": "a",
+      "telefone": "a",
+      "email": "a",
+      "senha": "a",
+      "tipo": "medico",
+      "id": 4
+    },
+    {
+      "nome": "b",
+      "crm": "b",
+      "especialidade": "b",
+      "telefone": "b",
+      "email": "b",
+      "senha": "b",
+      "tipo": "medico",
+      "id": 5
+    },
+    {
+      "nome": "3",
+      "idade": "3",
+      "plano": "3",
+      "telefone": "3",
+      "email": "3",
+      "senha": "3",
+      "notificacoes": [],
+      "medicamentos": {
+        "segunda": {},
+        "terca": {},
+        "quarta": {},
+        "quinta": {},
+        "sexta": {},
+        "sabado": {},
+        "domingo": {},
+        "week": 46
+      },
+      "tipo": "paciente",
+      "id": 6
     }
   ]
 }

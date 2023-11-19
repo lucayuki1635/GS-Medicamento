@@ -1,5 +1,3 @@
-// CustomModal.js
-
 import React from 'react';
 import { Modal, View, Text, StyleSheet } from 'react-native';
 import Button from './button';

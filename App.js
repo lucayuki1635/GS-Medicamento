@@ -6,6 +6,7 @@ import { AuthProvider } from './context/AuthContext';
 import Cadastro from './screens/Cadastro';
 import Login from './screens/Login';
 import Painel from './screens/Painel';
+import TelaCarregamento from './screens/Carregamento';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,13 @@ export default function App() {
           <Stack.Screen
             name="Login"
             component={Login}
+            options={{
+              headerShown: false 
+            }}
+          />
+          <Stack.Screen
+            name="Carregamento"
+            component={TelaCarregamento}
             options={{
               headerShown: false 
             }}

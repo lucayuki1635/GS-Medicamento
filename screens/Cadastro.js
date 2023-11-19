@@ -17,30 +17,30 @@ export default function Cadastro({navigation}){
 	const [plano, setPlano] = useState('')
 	const [erro, setErro] = useState('')
 
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [opcaoSelecionada, setopcaoSelecionada] = useState(null);
 	const [modalVisible, setModalVisible] = useState(false);
 
     const handleSelectOption = (optionValue) => {
-        setSelectedOption(optionValue);
+        setopcaoSelecionada(optionValue);
     };
 
 	const returnToLogin = () => {
 		navigation.navigate('Login');
 	};
 
-	function getWeekNumber() {
-		var currentDate = new Date();
-		var startDate = new Date(currentDate.getFullYear(), 0, 1);
-		var days = Math.floor((currentDate - startDate) /
+	function getNumSemana() {
+		var dataAtual = new Date();
+		var dataInicial = new Date(dataAtual.getFullYear(), 0, 1);
+		var dias = Math.floor((dataAtual - dataInicial) /
 			(24 * 60 * 60 * 1000));
 		
-		var weekNumber = Math.ceil(days / 7);  
-		return weekNumber
+		var numSemana = Math.ceil(dias / 7);  
+		return numSemana
 	}
 	
 
 	async function handleRegister(){
-		const tipo = selectedOption
+		const tipo = opcaoSelecionada
 
 		const response = await axios.get(`http://localhost:3000/usuarios?email=${email}`);
     	const usuarioExistente = response.data.length > 0;
@@ -49,7 +49,7 @@ export default function Cadastro({navigation}){
       		setErro("Este e-mail já está registrado.");
     	} else {
 
-			if (selectedOption=='medico'){
+			if (opcaoSelecionada=='medico'){
 				const data = {nome,crm,especialidade,telefone,email,senha, tipo}
 				const verificarVazio =  Object.values(data).every(valor => valor !== '')
 
@@ -65,7 +65,7 @@ export default function Cadastro({navigation}){
 
 				}
 
-			}else if (selectedOption=='paciente'){
+			}else if (opcaoSelecionada=='paciente'){
 				const medicamentos = {
 					"segunda": {},
 					"terca": {},
@@ -74,7 +74,7 @@ export default function Cadastro({navigation}){
 					"sexta": {},
 					"sabado": {},
 					"domingo": {},
-					"week": getWeekNumber()
+					"week": getNumSemana()
 				}
 				const notificacoes = []
 				const data = {nome,idade,plano,telefone,email,senha,notificacoes,medicamentos,tipo}
@@ -97,7 +97,7 @@ export default function Cadastro({navigation}){
 	}
 
     const renderInputsBasedOnOption = () => {
-        switch (selectedOption) {
+        switch (opcaoSelecionada) {
           case 'medico':
             return (
               <>
