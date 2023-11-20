@@ -6,7 +6,7 @@ export default function BotaoRetorno(){
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.goBack();
+    navigation.navigate('Login')
   };
 
   return (

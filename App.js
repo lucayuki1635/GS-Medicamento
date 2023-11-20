@@ -5,8 +5,9 @@ import { AuthProvider } from './context/AuthContext';
 
 import Cadastro from './screens/Cadastro';
 import Login from './screens/Login';
-import Painel from './screens/Painel';
+import PainelMedico from './screens/Painel';
 import TelaCarregamento from './screens/Carregamento';
+import PainelPaciente from './screens/PainelPac';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,10 +39,18 @@ export default function App() {
             }}
           />
           <Stack.Screen
-            name="Painel"
-            component={Painel}
+            name="Painel Médico"
+            component={PainelMedico}
             options={{
-              title: 'Painel',
+              title: 'Painel Médico',
+              headerTitleAlign: 'center',
+            }}
+          />
+          <Stack.Screen
+            name="Painel Paciente"
+            component={PainelPaciente}
+            options={{
+              title: 'Painel Paciente',
               headerTitleAlign: 'center',
             }}
           />

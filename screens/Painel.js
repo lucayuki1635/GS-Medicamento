@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext.js";
 import axios from "axios";
 import CustomModal from "../components/modal";
 
-export default function Painel() {
+export default function PainelMedico() {
     const { username, usertype } = useContext(AuthContext);
     const [pacientes, setPacientes] = useState([]);
     const [selectedPaciente, setSelectedPaciente] = useState('');
@@ -87,27 +87,27 @@ export default function Painel() {
     };
 
     const handleMedicationButtonClick = (day) => {
-    const medications = selectedPatientData.medicamentos[day];
+        const medications = selectedPatientData.medicamentos[day];
 
-    if (medications && Object.keys(medications).length > 0) {
-        const medicationsText = Object.entries(medications)
-            .map(([medication, details]) => {
-                const [taken, horarioIndicado, horarioTomado] = details;
-                const statusText = taken ? '✔️' : '✖️';
-                const horarioTomadoText = taken ? `, HT: ${horarioTomado}` : '';
-                return `${medication} ${statusText} - HI: ${horarioIndicado}${horarioTomadoText}`;
-            })
-            .join('\n');
+        if (medications && Object.keys(medications).length > 0) {
+            const medicationsText = Object.entries(medications)
+                .map(([medication, details]) => {
+                    const [taken, horarioIndicado, horarioTomado] = details;
+                    const statusText = taken ? '✔️' : '✖️';
+                    const horarioTomadoText = taken ? `, HT: ${horarioTomado}` : '';
+                    return `${medication} ${statusText} - HI: ${horarioIndicado}${horarioTomadoText}`;
+                })
+                .join('\n');
 
-        setDay(`Medicamentos registrados: \n${medicationsText}`);
-    } else {
-        setDay(`Não há medicamentos registrados!`);
-    }
-    setModalVisible(true);
+            setDay(`Medicamentos registrados: \n${medicationsText}`);
+        } else {
+            setDay(`Não há medicamentos registrados!`);
+        }
+        setModalVisible(true);
 };
 
 
-    console.log(infoDay)
+
 
     return (
         <View style={styles.containerBetween}>

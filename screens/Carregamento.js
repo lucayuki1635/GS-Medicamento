@@ -17,9 +17,9 @@ export default function TelaCarregamento ({ navigation }) {
 
     if (!isLoading) {
       if (usertype === 'medico') {
-        navigation.navigate('Painel');
+        navigation.navigate('Painel Médico');
       } else if (usertype === 'paciente') {
-        navigation.navigate('Painel2');
+        navigation.navigate('Painel Paciente');
       } else {
         console.warn('Tipo de usuário desconhecido! Redirecionando...');
       }

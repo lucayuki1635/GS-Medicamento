@@ -9,6 +9,7 @@ export const AuthContext = createContext({})
 export function AuthProvider({children}){
     const [username, setUsername] = useState(null)
     const [usertype, setUsertype] = useState(null)
+    const [userId, setUserID] = useState(null)
 
     async function login(credenciais){
         const resp = await axios.get("http://localhost:3000/usuarios")
@@ -17,6 +18,7 @@ export function AuthProvider({children}){
         if(usuario?.senha === credenciais.senha){
             setUsername(usuario.nome)
             setUsertype(usuario.tipo)
+            setUserID(usuario.id)
             return true
         }
         return false
