@@ -2,33 +2,32 @@ import React from 'react';
 import { Modal, View, Text, StyleSheet } from 'react-native';
 import Button from './button';
 
-export default function CustomModal ({ visible, onClose, action ,children }){
-    const handleClose = () => {
-        onClose();
-        if (action) {
-            action();
-        }
-      };
-    
-      return (
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={visible}
-          onRequestClose={handleClose}
-        >
-          <View style={styles.modalContainer}>
-            <View style={styles.modalContent}>
-              <Text>{children}</Text>
-              <Button onPress={handleClose}>
-                OK
-              </Button>
-            </View>
-          </View>
-        </Modal>
-      );
-    };
+export default function CustomModal({ visible, onClose, action, buttonLabel = 'OK', children }) {
+  const handleClose = () => {
+    onClose();
+    if (action) {
+      action();
+    }
+  };
 
+  return (
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={visible}
+      onRequestClose={handleClose}
+    >
+      <View style={styles.modalContainer}>
+        <View style={styles.modalContent}>
+          <Text>{children}</Text>
+          <Button onPress={handleClose}>
+            {buttonLabel}
+          </Button>
+        </View>
+      </View>
+    </Modal>
+  );
+};
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,

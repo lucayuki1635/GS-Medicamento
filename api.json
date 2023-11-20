@@ -17,16 +17,36 @@
       "telefone": "1",
       "email": "1",
       "senha": "1",
-      "notificacoes": [],
+      "notificacoes": [
+        "O médico a escreveu uma mensagem: \naaaa",
+        "O médico a escreveu uma mensagem: \nteste"
+      ],
       "medicamentos": {
-        "segunda": {},
-        "terca": {"medicamento": [false, 0, 0], "medicamento 2": [true, 0, 0]},
+        "segunda": {
+          "aaa": [
+            false,
+            "10:00",
+            "00:00"
+          ],
+          "bbb": [
+            false,
+            "12:15",
+            "00:00"
+          ]
+        },
+        "terca": {},
         "quarta": {},
-        "quinta": {},
+        "quinta": {
+          "1": [
+            false,
+            "10:30",
+            "00:00"
+          ]
+        },
         "sexta": {},
         "sabado": {},
         "domingo": {},
-        "week": 46
+        "week": 47
       },
       "tipo": "paciente",
       "id": 2
@@ -47,7 +67,7 @@
         "sexta": {},
         "sabado": {},
         "domingo": {},
-        "week": 46
+        "week": 47
       },
       "tipo": "paciente",
       "id": 3

@@ -1,9 +1,14 @@
 import Checkbox from 'expo-checkbox';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function CheckboxGroup({ options, onSelectOption, multipleSelectOption = false, position = 'h' }) {
+export default function CheckboxGroupPac({ options, onSelectOption, multipleSelectOption = false }) {
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  useEffect(() => {
+    const defaultSelectedOptions = options.filter((option) => option.defaultValue);
+    setSelectedOptions(defaultSelectedOptions.map((option) => option.value));
+  }, [options]);
 
   const handleOptions = (checkboxValue) => {
     if (multipleSelectOption) {
@@ -21,11 +26,12 @@ export default function CheckboxGroup({ options, onSelectOption, multipleSelectO
   };
 
   return (
-    <View style={position === 'v' ? styles.verticalContainer : styles.horizontalContainer}>
+    <View style={styles.container}>
       {options.map((option) => (
         <CustomCheckbox
           key={option.value}
           isChecked={selectedOptions.includes(option.value)}
+          defaultValue={option.defaultValue}
           onChange={() => handleOptions(option.value)}
         >
           {option.label}
@@ -35,31 +41,28 @@ export default function CheckboxGroup({ options, onSelectOption, multipleSelectO
   );
 }
 
-function CustomCheckbox({ children, isChecked, onChange }) {
+function CustomCheckbox({ children, isChecked, onChange, defaultValue }) {
   return (
-    <View style={styles.checkboxContainer}>
-      <Checkbox style={styles.checkbox} value={isChecked} onValueChange={onChange} />
-      <Text style={styles.paragraph}>{children}</Text>
+    <View style={styles.optionContainer}>
+      <Checkbox style={styles.checkbox} value={isChecked || defaultValue} onValueChange={onChange} />
+      <Text style={styles.optionText}>{children}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  horizontalContainer: {
+  container: {
+    flex: 1,
+    marginHorizontal: 16,
+    marginVertical: 32,
+  },
+  optionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  verticalContainer: {
-    flexDirection: 'column',
-  },
-  checkboxContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 16, // Ajuste de espaçamento horizontal entre as opções
-    marginBottom: 2,  // Ajuste de espaçamento vertical entre as opções
-  },
-  paragraph: {
+  optionText: {
     fontSize: 15,
+    marginLeft: 8,
   },
   checkbox: {
     margin: 8,

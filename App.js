@@ -8,6 +8,8 @@ import Login from './screens/Login';
 import PainelMedico from './screens/Painel';
 import TelaCarregamento from './screens/Carregamento';
 import PainelPaciente from './screens/PainelPac';
+import BotaoRetorno from './components/returnButton';
+import Notificacao from './components/notification';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +38,12 @@ export default function App() {
             options={{
               title: 'Cadastro',
               headerTitleAlign: 'center',
+              headerTitleAlign: 'center',
+              headerShown: true,
+              headerLeft: () =>(
+                <BotaoRetorno/>
+              ),
+              
             }}
           />
           <Stack.Screen
@@ -44,6 +52,11 @@ export default function App() {
             options={{
               title: 'Painel Médico',
               headerTitleAlign: 'center',
+              headerShown: true,
+              headerLeft: () =>(
+                <BotaoRetorno/>
+                
+              ),
             }}
           />
           <Stack.Screen
@@ -52,6 +65,15 @@ export default function App() {
             options={{
               title: 'Painel Paciente',
               headerTitleAlign: 'center',
+              headerTitleAlign: 'center',
+              headerShown: true,
+              headerLeft: () =>(
+                <BotaoRetorno/>
+                
+              ),
+              headerRight: () =>(
+                <Notificacao/>
+              ),
             }}
           />
         </Stack.Navigator>
