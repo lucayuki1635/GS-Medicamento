@@ -124,7 +124,8 @@ export default function PainelMedico() {
                 .map(([medication, details]) => {
                     const [taken, horarioIndicado, horarioTomado] = details;
                     const statusText = taken ? '✔️' : '✖️';
-                    return `${medication} ${statusText} - HI: ${horarioIndicado}`;
+                    const horarioTomadoText = taken ? `, HT: ${horarioTomado}` : '';
+                    return `${medication} ${statusText} - HI: ${horarioIndicado}${horarioTomadoText}`;
                 })
                 .join('\n');
 
@@ -133,7 +134,6 @@ export default function PainelMedico() {
             setDay(`Não há medicamentos registrados!`);
         }
         setModalVisible(true);
-        
     };
 
     const handleSendNotification = () => {
@@ -281,6 +281,7 @@ export default function PainelMedico() {
             <CustomModal visible={modalVisible} onClose={() => setModalVisible(false)} action={fetchData}>
                 {infoDay}
             </CustomModal>
+
 
             <CustomModal visible={modalVisibleAdd} onClose={() => setModalVisibleAdd(false)} action={() => handleAddMedication(selectedDay, nomeRemedio, horarioTomar)} buttonLabel='Adicionar'>
                 <View>
