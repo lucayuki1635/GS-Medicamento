@@ -42,9 +42,11 @@ export default function CheckboxGroupPac({ options, onSelectOption, multipleSele
 }
 
 function CustomCheckbox({ children, isChecked, onChange, defaultValue }) {
+  const checkboxValue = isChecked !== undefined ? isChecked : defaultValue || false;
+
   return (
     <View style={styles.optionContainer}>
-      <Checkbox style={styles.checkbox} value={isChecked || defaultValue} onValueChange={onChange} />
+      <Checkbox style={styles.checkbox} value={checkboxValue} onValueChange={onChange} />
       <Text style={styles.optionText}>{children}</Text>
     </View>
   );
