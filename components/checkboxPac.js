@@ -1,6 +1,7 @@
 import Checkbox from 'expo-checkbox';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function CheckboxGroupPac({ options, onSelectOption, multipleSelectOption = false }) {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -28,14 +29,18 @@ export default function CheckboxGroupPac({ options, onSelectOption, multipleSele
   return (
     <View style={styles.container}>
       {options.map((option) => (
-        <CustomCheckbox
-          key={option.value}
-          isChecked={selectedOptions.includes(option.value)}
-          defaultValue={option.defaultValue}
-          onChange={() => handleOptions(option.value)}
-        >
-          {option.label}
-        </CustomCheckbox>
+        <View style={styles.checkboxContainer}>
+          <MaterialCommunityIcons name="pill" size={24} color="black" />
+          <CustomCheckbox
+            key={option.value}
+            isChecked={selectedOptions.includes(option.value)}
+            defaultValue={option.defaultValue}
+            onChange={() => handleOptions(option.value)}
+          >
+            {option.label}
+          </CustomCheckbox>
+        </View>
+        
       ))}
     </View>
   );
@@ -69,4 +74,8 @@ const styles = StyleSheet.create({
   checkbox: {
     margin: 8,
   },
+  checkboxContainer:{
+    flexDirection: 'row',
+    alignItems: 'center',
+  }
 });

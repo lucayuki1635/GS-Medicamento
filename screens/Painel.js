@@ -6,6 +6,8 @@ import CustomModal from "../components/modal";
 import Input from '../components/input';
 import CheckboxGroup from "../components/checkbox";
 import BoxInput from '../components/boxInput.js';
+import { Feather } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons';
 
 export default function PainelMedico() {
     const { username, usertype, userID } = useContext(AuthContext);
@@ -190,33 +192,33 @@ export default function PainelMedico() {
             <View style={styles.table}>
                 {daysOfWeek.map((day, index) => (
                     <View key={day} style={styles.table_body_single_row}>
-                        <View style={{ width: '40%', justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ width: '30%', justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={styles.dayOfWeekText}>
                                 {daysOfWeekPT[index]}:
                             </Text>
                         </View>
-                        <View style={{ width: '20%', justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ width: '25%', justifyContent: 'center', alignItems: 'center' }}>
                             <TouchableOpacity
-                                style={styles.buttonStyle('green')}
+                                style={styles.buttonStyle('#287B74')}
                                 onPress={() => handleAddButtonClick(day)}
                             >
-                                <Text>Adicionar</Text>
+                                <Text style={styles.buttonText}>Adicionar</Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={{ width: '20%', justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ width: '25%', justifyContent: 'center', alignItems: 'center' }}>
                             <TouchableOpacity
-                                style={styles.buttonStyle('red')}
+                                style={styles.buttonStyle('#8A0B27')}
                                 onPress={() => handleRemoveButtonClick(day)}
                             >
-                                <Text>Remover</Text>
+                                <Text style={styles.buttonText}>Remover</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{ width: '20%', justifyContent: 'center', alignItems: 'center' }}>
                             <TouchableOpacity
-                                style={styles.buttonStyle('blue')}
+                                style={styles.buttonStyle('#2E1F69')}
                                 onPress={() => handleMedicationButtonClick(day)}
                             >
-                                <Text>Ver</Text>
+                                <Text style={styles.buttonText}><Entypo name="eye" size={16} color="#E9ECEB" /> Ver</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -233,7 +235,7 @@ export default function PainelMedico() {
                         <Text style={styles.centeredText}>
                             Nome: {selectedPatientData.nome} | Idade: {selectedPatientData.idade}
                         </Text>
-                        <Text style={styles.centeredText}>Telefone: {selectedPatientData.telefone}</Text>
+                        <Text style={styles.centeredText}><Feather name="phone" size={16} color="black" /> {selectedPatientData.telefone}</Text>
                     </View>
                     <View style={styles.centeredTextContainer}>
                         <Text style={styles.centeredText}>Medicamentos</Text>
@@ -425,6 +427,14 @@ const styles = StyleSheet.create({
         elevation: 1,
         backgroundColor: '#fff',
       },
+      buttonText: {
+        color: '#E9ECEB',
+        textAlign: 'center',
+      },
+      dayOfWeekText:{
+        color: '#0A0F0D',
+        textAlign: 'center',
+      }
       
   });
   

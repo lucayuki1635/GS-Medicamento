@@ -2,30 +2,24 @@
   "usuarios": [
     {
       "nome": "Medico A",
-      "crm": "a",
-      "especialidade": "a",
-      "telefone": "a",
-      "email": "a",
-      "senha": "a",
+      "crm": "123",
+      "especialidade": "A",
+      "telefone": "123",
+      "email": "medico@gmail.com",
+      "senha": "123",
       "tipo": "medico",
       "id": 1
     },
     {
       "nome": "Paciente 1",
-      "idade": "60",
-      "plano": "1234",
-      "telefone": "1223",
-      "email": "1",
-      "senha": "1",
+      "idade": "90",
+      "plano": "123",
+      "telefone": "123",
+      "email": "paciente@gmail.com",
+      "senha": "123",
       "notificacoes": [],
       "medicamentos": {
-        "segunda": {
-          "Testando": [
-            false,
-            "12:00",
-            "00:00"
-          ]
-        },
+        "segunda": {},
         "terca": {},
         "quarta": {},
         "quinta": {},
@@ -36,6 +30,33 @@
       },
       "tipo": "paciente",
       "id": 2
+    },
+    {
+      "nome": "paciente 2",
+      "idade": "90",
+      "plano": "123",
+      "telefone": "123",
+      "email": "paciente@gmail.com.br",
+      "senha": "123",
+      "notificacoes": [],
+      "medicamentos": {
+        "segunda": {},
+        "terca": {},
+        "quarta": {},
+        "quinta": {
+          "Medicamento quinta": [
+            true,
+            "14:00",
+            "00:00"
+          ]
+        },
+        "sexta": {},
+        "sabado": {},
+        "domingo": {},
+        "week": 47
+      },
+      "tipo": "paciente",
+      "id": 3
     }
   ]
 }

@@ -5,6 +5,7 @@ import axios from "axios";
 import CheckboxGroupPac from "../components/checkboxPac.js";
 import { FontAwesome5 } from '@expo/vector-icons'
 import CustomModal from "../components/modal.js";
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function PainelPaciente() {
     const { userId, notificationCount} = useContext(AuthContext);

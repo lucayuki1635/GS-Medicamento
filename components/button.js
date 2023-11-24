@@ -12,8 +12,8 @@ export default function Button({children, ...props}){
 
 const styles = StyleSheet.create({
     button:{
-        backgroundColor: '#121A2C',
-        color: '#FFBA26',
+        backgroundColor: '#086788',
+        color: '#FFF1D0',
         paddingVertical: 8,
         paddingHorizontal: 48,
         borderRadius: 4,
